@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Premium dark rounded-corner squircle background of the logo -->
+    <path
+        android:fillColor="#0D111A"
+        android:pathData="M 32,0 L 88,0 C 106,0 120,14 120,32 L 120,88 C 120,106 106,120 88,120 L 32,120 C 14,120 0,106 0,88 L 0,32 C 0,14 14,0 32,0 Z" />
+
+    <!-- Top Left: "D" -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M 32,58 L 32,31 L 45,31 Q 57.5,44.5 45,58 L 32,58" />
+
+    <!-- Top Right: "K" (Merged with "D" curve apex) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M 51.5,44.5 L 88,31 M 51.5,44.5 L 88,58" />
+
+    <!-- Bottom Left: "H" -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M 32,64 L 32,91 M 58,64 L 58,91 M 32,77.5 L 58,77.5" />
+
+    <!-- Bottom Right: "G" -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.5"
+        android:strokeLineCap="square"
+        android:strokeLineJoin="miter"
+        android:pathData="M 88,64 L 72,64 Q 62,64 62,77.5 Q 62,91 72,91 L 88,91 L 88,77.5 L 72,77.5" />
+
+</vector>

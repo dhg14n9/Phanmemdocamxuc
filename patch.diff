@@ -1,0 +1,63 @@
+--- app/src/main/java/com/example/ui/VoiceScreen.kt
++++ app/src/main/java/com/example/ui/VoiceScreen.kt
+@@ -41,61 +41,12 @@
+ @Composable
+ fun VoiceScreen(navController: NavController, vm: AuraViewModel = viewModel()) {
+     val results by vm.voiceSentiment.collectAsState()
+-    val textToSpeak by vm.textToSpeak.collectAsState()
+     val currentMode by vm.voiceMode.collectAsState()
+     val voiceState by vm.voiceState.collectAsState()
+     
+     val context = LocalContext.current
+     LaunchedEffect(Unit) {
+         vm.currentVoiceTarget = "voice"
+-    }
+-
+-    var tts by remember { mutableStateOf<android.speech.tts.TextToSpeech?>(null) }
+-    DisposableEffect(context) {
+-        val textToSpeech = android.speech.tts.TextToSpeech(context) { status ->
+-            if (status == android.speech.tts.TextToSpeech.SUCCESS) {
+-                tts?.language = java.util.Locale("vi", "VN")
+-            }
+-        }
+-        textToSpeech.setOnUtteranceProgressListener(object : android.speech.tts.UtteranceProgressListener() {
+-            override fun onStart(utteranceId: String?) {
+-                vm.onSpeechStarted()
+-            }
+-            override fun onDone(utteranceId: String?) {
+-                vm.onSpeechFinished()
+-            }
+-            @Deprecated("Deprecated in Java")
+-            override fun onError(utteranceId: String?) {
+-                vm.onSpeechFinished()
+-            }
+-            override fun onError(utteranceId: String?, errorCode: Int) {
+-                vm.onSpeechFinished()
+-            }
+-        })
+-        tts = textToSpeech
+-        onDispose {
+-            textToSpeech.stop()
+-            textToSpeech.shutdown()
+-        }
+-    }
+-    LaunchedEffect(textToSpeak) {
+-        textToSpeak?.let { text ->
+-            var success = false
+-            if (tts != null) {
+-                val params = Bundle().apply {
+-                    putString(android.speech.tts.TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "ai_voice")
+-                }
+-                val result = tts?.speak(text, android.speech.tts.TextToSpeech.QUEUE_FLUSH, params, "ai_voice")
+-                if (result == android.speech.tts.TextToSpeech.SUCCESS) {
+-                    success = true
+-                }
+-            }
+-            if (!success) {
+-                vm.onSpeechFinished()
+-            }
+-            vm.resetTextToSpeak()
+-        }
+     }
+     
+     LazyColumn(

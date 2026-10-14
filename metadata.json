@@ -1,0 +1,8 @@
+{
+  "name": "Remix: AURA - Emotion AI",
+  "description": "AI Emotion Support App",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
