@@ -1,21 +1,21 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/d16798fa-dab5-4ced-a3df-88a8d19af491
-
-## Run Locally
-
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
-
-
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
+# AURA
+ 
+An Android app that reads your emotional state from your voice and your smartwatch, then helps you calm down with music, breathing exercises, and an AI companion. Built with Kotlin and Jetpack Compose, and works offline.
+ 
+## Features
+ 
+- **Voice emotion analysis** in Vietnamese, with five modes: standard, stress, anxiety, ADHD and sleep. Uses Gemini when online, and on-device Vosk plus keyword scoring when offline.
+- **Biometrics** (heart rate, SpO2, sleep, steps) from Gadgetbridge or Blynk
+- **AI chat** that sees your vitals and plays a favourite track when you sound stressed
+- **Healing music**, a **breathing guide**, **stress trend charts** and **daily AI reports**
+- **Trend alerts**, plus an optional Google Sheets webhook and an emergency SOS call
+## Setup
+ 
+1. Open the project in Android Studio.
+2. Copy `.env.example` to `.env` and set `GEMINI_API_KEY`. `BLYNK_TOKEN` and `WEBHOOK_URL` are optional.
+3. Remove `signingConfig = signingConfigs.getByName("debugConfig")` from `app/build.gradle.kts`, or add your own `debug.keystore`.
+4. Run on a device with Android 7.0 or newer.
+Keys can also be changed later in the app's Settings screen.
+ 
+> AURA is a wellbeing tool, not a medical device.
+ 
